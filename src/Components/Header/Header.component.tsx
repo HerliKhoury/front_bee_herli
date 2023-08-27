@@ -6,8 +6,14 @@ export const Header = (
     return(
         <div>
             <div>
-                <h1>{props.userName}</h1>
-                <p>{props.userEmail}</p>
+                <div>
+                    <h1>{props.userName}</h1>
+                    <p>{props.userEmail}</p>
+                </div>
+                <div>
+                    <button>Cadastrar imóvel</button>
+                    <button>Logout</button>
+                </div>
             </div>
             <div>
                 {/* fazer a lógica dos cards aqui */}
