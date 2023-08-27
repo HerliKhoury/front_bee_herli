@@ -4,7 +4,7 @@ import { loginSchema } from "../../Schemas/login.schemas";
 import { TLogin } from "../../Interfaces/login.interfaces";
 
 
-export const loginForm = () => {
+export const LoginForm = () => {
 
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(loginSchema)
