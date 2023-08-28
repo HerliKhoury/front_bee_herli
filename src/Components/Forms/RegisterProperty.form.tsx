@@ -1,5 +1,6 @@
-import { GenericPropertyForm } from "./genericProperty.form";
+
 import { propertySchema } from "../../Schemas/property.schemas";
+import { GenericPropertyForm } from "./GenericProperty.form";
 
 export const RegisterPropertyForm = () => {
 

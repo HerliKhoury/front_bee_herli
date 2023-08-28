@@ -30,6 +30,8 @@ export const registerUserForm = () => {
                 <p>{errors.password_confirm?.message}</p>
                 <button type="submit">Cadastre se</button>
             </form>
+            <p>Ou</p>
+            <button>Login</button>
         </>
     );
 };

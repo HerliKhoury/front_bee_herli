@@ -24,6 +24,8 @@ export const LoginForm = () => {
                 <p>{errors.password?.message}</p>
                 <button type="submit">Login</button>
             </form>
+            <p>Ou</p>
+            <button>Registre se</button>
         </>
     );
 };
