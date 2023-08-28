@@ -7,14 +7,18 @@ import { UserContext } from "../../Providers/userContext/user.context";
 
 
 export const LoginForm = () => {
-    const {toggleForm, setToggleForm} = useContext(UserContext);
+    const {
+        toggleForm, 
+        setToggleForm,
+        userLogin
+    } = useContext(UserContext);
 
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(loginSchema)
     });
 
     function onSubmitFuction(data: TLogin){
-        console.log(data);
+        userLogin(data);
     }
 
     return(
