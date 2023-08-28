@@ -2,9 +2,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { userSchemaRegister } from "../../Schemas/user.schemas";
 import { TUser } from "../../Interfaces/user.interfaces";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/userContext/user.context";
 
 
-export const registerUserForm = () => {
+export const RegisterUserForm = () => {
+    const {toggleForm, setToggleForm} = useContext(UserContext);
 
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(userSchemaRegister)
@@ -31,7 +34,7 @@ export const registerUserForm = () => {
                 <button type="submit">Cadastre se</button>
             </form>
             <p>Ou</p>
-            <button>Login</button>
+            <button onClick={() => {setToggleForm(!toggleForm)}}>Login</button>
         </>
     );
 };

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LoginForm } from "../Components/Forms/Login.form";
+import { UserContext } from "../Providers/userContext/user.context";
+import { RegisterUserForm } from "../Components/Forms/RegisterUser.form";
 
 
 export const HomePage =  () => {
-    
+    const {toggleForm} = useContext(UserContext);
 
     return(
         <div>
@@ -13,7 +15,7 @@ export const HomePage =  () => {
                 <img src="../Assets/house.svg" alt="Ilustração imóvel"/>
             </div>
             <div>
-                <LoginForm/>
+                {toggleForm ? <RegisterUserForm/> : <LoginForm/>} 
             </div>
         </div>
     );
