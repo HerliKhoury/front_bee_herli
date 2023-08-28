@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { PropertyContext } from "../../Providers/propertyContext/property.context";
 
 export const PropertyCard = (
     props : {
@@ -9,6 +11,7 @@ export const PropertyCard = (
         price: string
     }
 ) => {
+    const {toggleEditFlag} = useContext(PropertyContext);
     return(
         <div>
             <div>
@@ -20,7 +23,7 @@ export const PropertyCard = (
                 <p>`Preço: {props.price}`</p>
             </div>
             <div>
-                <button>Editar</button>
+                <button onClick={toggleEditFlag}>Editar</button>
                 <button>Excluir</button>
             </div>
         </div>
