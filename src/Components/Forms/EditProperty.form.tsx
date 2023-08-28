@@ -2,7 +2,7 @@
 import { propertySchemaOptional } from "../../Schemas/property.schemas";
 import { GenericPropertyForm } from "./GenericProperty.form";
 
-export const RegisterPropertyForm = () => {
+export const EditPropertyForm = () => {
 
     /* function onSubmit(data: TProperty){
         console.log(data);

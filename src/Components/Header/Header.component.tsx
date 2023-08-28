@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import { PropertyContext } from "../../Providers/propertyContext/property.context";
 
 export const Header = (
     props: { userName: string, userEmail: string}
 ) => {
+
+    const { toggleRegisFlag } = useContext(PropertyContext);
 
     return(
         <div>
@@ -11,12 +15,9 @@ export const Header = (
                     <p>{props.userEmail}</p>
                 </div>
                 <div>
-                    <button>Cadastrar imóvel</button>
+                    <button onClick={toggleRegisFlag}>Cadastrar imóvel</button>
                     <button>Logout</button>
                 </div>
-            </div>
-            <div>
-                {/* fazer a lógica dos cards aqui */}
             </div>
         </div>
     );

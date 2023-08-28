@@ -1,4 +1,3 @@
-
 export type TDefaultProviderProps = {
     children: React.ReactNode;
 };
