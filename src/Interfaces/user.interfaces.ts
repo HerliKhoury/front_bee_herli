@@ -1,4 +1,5 @@
 import { InferType } from "yup";
-import { userSchemaRegister } from "../Schemas/user.schemas";
+import { userSchemaRegister, userSchemaReq } from "../Schemas/user.schemas";
 
 export type TUser = InferType<typeof userSchemaRegister>;
+export type TUserReq = InferType<typeof userSchemaReq>;

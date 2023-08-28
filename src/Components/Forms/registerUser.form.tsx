@@ -7,14 +7,18 @@ import { UserContext } from "../../Providers/userContext/user.context";
 
 
 export const RegisterUserForm = () => {
-    const {toggleForm, setToggleForm} = useContext(UserContext);
+    const {
+        toggleForm, 
+        setToggleForm,
+        createUser
+    } = useContext(UserContext);
 
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(userSchemaRegister)
     });
 
     function onSubmitFuction(data: TUser){
-        console.log(data);
+        createUser(data);
     }
 
     return(
