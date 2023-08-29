@@ -14,9 +14,8 @@ export const EditPropertyModal = () => {
             overlayClassName="modal-overlay"
             className="modal-content"
         >
-            <button onClick={toggleEditFlag}>X</button>
+            <button className="close-btn" onClick={toggleEditFlag}>X</button>
             <EditPropertyForm/>
-            <button onClick={toggleEditFlag}>Close</button>
         </Modal>
     );
 };

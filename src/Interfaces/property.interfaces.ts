@@ -10,4 +10,5 @@ export interface TFormProps {
     onSubmitFunction: (formData: any) => void;
     submitButtonText: string;
     titleText: string;
+    cancelFunction: () => void
 }

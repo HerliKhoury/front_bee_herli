@@ -1,23 +1,16 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { TFormProps, TProperty, TPropertyUpdate} from "../../Interfaces/property.interfaces";
-import { useContext } from "react";
-import { UserContext } from "../../Providers/userContext/user.context";
-import { PropertyContext } from "../../Providers/propertyContext/property.context";
-
-
+import { TFormProps } from "../../Interfaces/property.interfaces";
 
 export const GenericPropertyForm: React.FC<TFormProps> = (props) => {
-
 
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(props.validationSchema)
     });
 
-
     return(
         <>
-            <h2>{props.titleText}</h2>
+            <h2 className="form-title">{props.titleText}</h2>
             <form onSubmit={handleSubmit(props.onSubmitFunction)}>
                 <input placeholder="Nome ou apelido" {...register("name")}/>
                 <p>{errors.name?.message}</p>
@@ -31,9 +24,12 @@ export const GenericPropertyForm: React.FC<TFormProps> = (props) => {
                 <p>{errors.zip_code?.message}</p>
                 <input placeholder="Preço" {...register("price")}/>
                 <p>{errors.price?.message}</p>
-                <button type="submit">{props.submitButtonText}</button>
+                <div className="btn-div">
+                    <button className="form-btns" type="submit">{props.submitButtonText}</button>
+                    <button className="form-btns" type="button" onClick={props.cancelFunction}>Cancelar</button>
+                </div>
             </form>
-            <button type="button">Cancelar</button>
+            
         </>
     );
 };

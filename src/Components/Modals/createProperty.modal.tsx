@@ -14,9 +14,8 @@ export const CreatePropertyModal = () => {
             overlayClassName="modal-overlay"
             className="modal-content"
         >
-            <button onClick={toggleRegisFlag}>X</button>
+            <button className="close-btn" onClick={toggleRegisFlag}>X</button>
             <RegisterPropertyForm/>
-            <button onClick={toggleRegisFlag}>Close</button>
         </Modal>
     );
 };

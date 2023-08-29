@@ -7,20 +7,21 @@ import { PropertyContext } from "../../Providers/propertyContext/property.contex
 
 export const RegisterPropertyForm = () => {
 
-    const { createProperty } = useContext(PropertyContext);
+    const { createProperty, toggleRegisFlag } = useContext(PropertyContext);
     
     const onSubmit = (formData: any) =>{
         createProperty(formData);
     }
 
     return(
-        <>
+        <div className="centralize">
             <GenericPropertyForm 
             validationSchema={propertySchema} 
             onSubmitFunction={onSubmit} 
             submitButtonText="Cadastrar"
             titleText="Cadastro de imóvel"
+            cancelFunction={toggleRegisFlag}
             />
-        </>
+        </div>
     );
 };

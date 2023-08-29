@@ -3,6 +3,8 @@ import { UserProvider } from './Providers/userContext/user.context';
 import { AppRoutes } from './Routes/App.routes';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./global.style.css";
+import "./Components/Forms/forms.style.css";
 
 function App() {
   return (
