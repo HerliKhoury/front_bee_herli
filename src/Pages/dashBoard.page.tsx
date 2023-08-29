@@ -1,23 +1,52 @@
+import { useEffect, useState } from "react";
 import { Header } from "../Components/Header/Header.component";
 import { CreatePropertyModal } from "../Components/Modals/CreateProperty.modal";
 import { EditPropertyModal } from "../Components/Modals/EditProperty.modal";
 import { PropertyCard } from "../Components/PropertyCard/PropertyCard.component";
+import { propertyService } from "../Services/property.service";
+import { toast } from "react-toastify";
+import { NoProperty } from "../Components/NoProperty/NoProperty.component";
 
 
 export const DashBoard = () => {
+    const [properties, setProperties] = useState<any[]>([])
+    useEffect(()=> {
+        async function loadProperties () {
+            try {
+                let response = await propertyService.getProperties()
+                if (!!response) setProperties(response)
+            } catch (error) {
+                toast.error('mesage')
+            }
+        }
+
+        loadProperties()
+        
+    },[])
     return(
-        <div>
+        <>
             <EditPropertyModal/>
             <CreatePropertyModal/>
             <Header userName="Herli" userEmail="meu@mail.com"/>
-            {/* lógica dos cards ou vazio */}
-            <PropertyCard 
-            name="Erebor" 
-            total_area="20000 Km squared"
-            built_area="15000 Km squared"
-            address="Undet The Mountain"
-            zip_code="73345-22"
-            price="2000000000000000000 Golden Coins"/>
-        </div>
+            {
+                properties.length > 0 ? 
+                <div>
+                    {properties.map(property => (
+                                <PropertyCard
+                                id={property.id}
+                                name={property.name}
+                                total_area={property.total_area}
+                                built_area={property.built_area}
+                                zip_code={property.zip_code}
+                                price={property.price}
+                                address={property.address}
+                                />
+                            )
+                        )
+                    }
+                </div> 
+                : <NoProperty/>
+            }
+        </>
     )
 };

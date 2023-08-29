@@ -3,6 +3,7 @@ import { PropertyContext } from "../../Providers/propertyContext/property.contex
 
 export const PropertyCard = (
     props : {
+        id: number,
         name: string, 
         total_area: string, 
         built_area: string, 
@@ -13,14 +14,14 @@ export const PropertyCard = (
 ) => {
     const {toggleEditFlag} = useContext(PropertyContext);
     return(
-        <div>
+        <div id={`${props.id}`}>
             <div>
                 <h2>{props.name}</h2>
-                <p>`Área total: ${props.total_area}`</p>
-                <p>`Área construida: ${props.built_area}`</p>
-                <p>`Endereço: ${props.address}`</p>
-                <p>`CEP: ${props.zip_code}`</p>
-                <p>`Preço: {props.price}`</p>
+                <p>Área total: {props.total_area}</p>
+                <p>Área construida: {props.built_area}</p>
+                <p>Endereço: {props.address}</p>
+                <p>CEP: {props.zip_code}`</p>
+                <p>Preço: {props.price}</p>
             </div>
             <div>
                 <button onClick={toggleEditFlag}>Editar</button>

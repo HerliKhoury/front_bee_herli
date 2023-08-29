@@ -1,4 +1,4 @@
-import { TProperty } from "./property.interfaces";
+import { TProperty, TPropertyRes } from "./property.interfaces";
 
 export type TDefaultProviderProps = {
     children: React.ReactNode;
@@ -9,5 +9,6 @@ export type TProviderContext = {
     toggleEditFlag: () => void ;
     flagRegisForm: boolean;
     flagEditForm: boolean;
-    createProperty: (formData: TProperty) => Promise<void>
+    createProperty: (formData: TProperty) => Promise<void>;
+    getProperties: () => Promise<TPropertyRes[] | void>;
 }
