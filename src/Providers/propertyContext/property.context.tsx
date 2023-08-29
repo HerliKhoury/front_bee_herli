@@ -9,6 +9,7 @@ export const PropertyContext = createContext({} as TProviderContext);
 export const PropertyProvider = ({children}: TDefaultProviderProps) => {
     const [flagRegisForm, setFlagRegisForm] = useState(false);
     const [flagEditForm, setFlagEditForm] = useState(false);
+    const [flagConfirmDelete, setFlagConfirmDelete] = useState(false);
 
     function toggleRegisFlag(){
         setFlagRegisForm(!flagRegisForm);
@@ -16,6 +17,10 @@ export const PropertyProvider = ({children}: TDefaultProviderProps) => {
 
     function toggleEditFlag(){
         setFlagEditForm(!flagEditForm);
+    };
+
+    function toggleConfirmDeleteFlag(){
+        setFlagConfirmDelete(!flagConfirmDelete);
     };
 
     const createProperty = async (formData: TProperty) => {
@@ -35,36 +40,7 @@ export const PropertyProvider = ({children}: TDefaultProviderProps) => {
         } 
     };
 
-    const getProperties = async () => {
-        const token: string | null = localStorage.getItem("Token");
-        try {
-            const propertiesList:TPropertyRes[] = await api.get('property',{
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            return propertiesList;
-        } catch (error: any) {
-            console.log(error);
-        } 
-    }
 
-    /* const editProperty = async (formData: TPropertyUpdate) => {
-        const token: string | null = localStorage.getItem("Token");
-        try {
-            await api.patch(`property/${formData.name}`, formData, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                }
-            });
-      
-            toast.success("Imóvel cadastrado com sucesso");
-            toggleRegisFlag();
-        } catch (error: any) {
-            toast.error("Imóvel não criado");
-            console.log(error);
-        } 
-    }; */
 
     return(
         <PropertyContext.Provider value = {{
@@ -73,7 +49,8 @@ export const PropertyProvider = ({children}: TDefaultProviderProps) => {
             flagEditForm,
             flagRegisForm,
             createProperty,
-            getProperties
+            flagConfirmDelete,
+            toggleConfirmDeleteFlag
         }}>
             {children}
         </PropertyContext.Provider>

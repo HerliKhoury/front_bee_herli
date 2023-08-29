@@ -7,8 +7,9 @@ export type TDefaultProviderProps = {
 export type TProviderContext = {
     toggleRegisFlag: () => void;
     toggleEditFlag: () => void ;
+    toggleConfirmDeleteFlag: () => void ;
     flagRegisForm: boolean;
     flagEditForm: boolean;
+    flagConfirmDelete: boolean;
     createProperty: (formData: TProperty) => Promise<void>;
-    getProperties: () => Promise<TPropertyRes[] | void>;
 }

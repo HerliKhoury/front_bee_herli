@@ -6,6 +6,8 @@ import { PropertyCard } from "../Components/PropertyCard/PropertyCard.component"
 import { propertyService } from "../Services/property.service";
 import { toast } from "react-toastify";
 import { NoProperty } from "../Components/NoProperty/NoProperty.component";
+import { ConfirmEditModal } from "../Components/Modals/ConfirmEdit.modal";
+import { ConfirmDeleteModal } from "../Components/Modals/ConfirmDelete.modal";
 
 
 export const DashBoard = () => {
@@ -21,8 +23,11 @@ export const DashBoard = () => {
         }
         loadProperties();    
     },[])
+
     return(
-        <>
+        <>  
+            {/* <ConfirmEditModal/>
+            <ConfirmDeleteModal/> */}
             <EditPropertyModal/>
             <CreatePropertyModal/>
             <Header userName="Herli" userEmail="meu@mail.com"/>

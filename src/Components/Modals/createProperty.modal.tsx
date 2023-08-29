@@ -7,8 +7,6 @@ import "./modal.style.css";
 export const CreatePropertyModal = () => {
     const {flagRegisForm, toggleRegisFlag} = useContext(PropertyContext);
 
-    
-
     return  (
         <Modal
             isOpen={flagRegisForm}
