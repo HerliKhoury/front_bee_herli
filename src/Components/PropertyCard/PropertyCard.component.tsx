@@ -20,7 +20,7 @@ export const PropertyCard = (
                 <p>Área total: {props.total_area}</p>
                 <p>Área construida: {props.built_area}</p>
                 <p>Endereço: {props.address}</p>
-                <p>CEP: {props.zip_code}`</p>
+                <p>CEP: {props.zip_code}</p>
                 <p>Preço: {props.price}</p>
             </div>
             <div>

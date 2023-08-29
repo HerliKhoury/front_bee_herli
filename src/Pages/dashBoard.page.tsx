@@ -16,12 +16,10 @@ export const DashBoard = () => {
                 let response = await propertyService.getProperties()
                 if (!!response) setProperties(response)
             } catch (error) {
-                toast.error('mesage')
+                toast.error("Erro ao acessar base de dados")
             }
         }
-
-        loadProperties()
-        
+        loadProperties();    
     },[])
     return(
         <>
