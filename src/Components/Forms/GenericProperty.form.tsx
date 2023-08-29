@@ -1,13 +1,19 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { TFormProps} from "../../Interfaces/property.interfaces";
+import { TFormProps, TProperty, TPropertyUpdate} from "../../Interfaces/property.interfaces";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/userContext/user.context";
+import { PropertyContext } from "../../Providers/propertyContext/property.context";
+
 
 
 export const GenericPropertyForm: React.FC<TFormProps> = (props) => {
 
+
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(props.validationSchema)
     });
+
 
     return(
         <>

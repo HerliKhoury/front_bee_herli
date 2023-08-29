@@ -1,15 +1,16 @@
 
+import { useContext } from "react";
 import { propertySchema } from "../../Schemas/property.schemas";
 import { GenericPropertyForm } from "./GenericProperty.form";
+import { PropertyContext } from "../../Providers/propertyContext/property.context";
+
 
 export const RegisterPropertyForm = () => {
 
-    /* function onSubmit(data: TProperty){
-        console.log(data);
-    }
-    */
-    function onSubmit(){
-        console.log("AJUDA A FIRMA");
+    const { createProperty } = useContext(PropertyContext);
+    
+    const onSubmit = (formData: any) =>{
+        createProperty(formData);
     }
 
     return(
