@@ -22,8 +22,8 @@ export const RegisterUserForm = () => {
     }
 
     return(
-        <>
-            <h2>Cadastro</h2>
+        <div className="wrap-forms">
+            <h2 className="form-title">Cadastro</h2>
             <form onSubmit={handleSubmit(onSubmitFuction)}>
                 <input placeholder="Nome" {...register("name")}/>
                 <p>{errors.name?.message}</p>
@@ -35,10 +35,10 @@ export const RegisterUserForm = () => {
                 <p>{errors.password?.message}</p>
                 <input placeholder="Confirme sua senha" {...register("password_confirm")}/>
                 <p>{errors.password_confirm?.message}</p>
-                <button type="submit">Cadastre se</button>
+                <button type="submit" className="form-btns">Cadastre se</button>
             </form>
-            <p>Ou</p>
-            <button onClick={() => {setToggleForm(!toggleForm)}}>Login</button>
-        </>
+            <p className="or">Ou</p>
+            <button className="form-btns" onClick={() => {setToggleForm(!toggleForm)}}>Login</button>
+        </div>
     );
 };

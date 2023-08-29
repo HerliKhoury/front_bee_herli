@@ -37,11 +37,28 @@
     gap: 5px;
 }
 
+.wrap-forms{
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+.or{
+    color: var(--color_white);
+    font-size: var(--form-title-font-size);
+    font-weight: var(--weight-regular);
+    margin-top: 25px;
+    text-align: center;
+}
+
 @media(min-width: 1024px){
     .btn-div{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         gap: 20px;
+    }
+
+    .wrap-forms{
+        width: 50%;
     }
 }

@@ -22,17 +22,20 @@ export const LoginForm = () => {
     }
 
     return(
-        <>
-            <h2>Login</h2>
+        <div className="wrap-forms">
+            <h2 className="form-title">Login</h2>
             <form onSubmit={handleSubmit(onSubmitFuction)}>
                 <input placeholder="Email" {...register("email")}/>
                 <p>{errors.email?.message}</p>
                 <input placeholder="Senha" {...register("password")}/>
                 <p>{errors.password?.message}</p>
-                <button type="submit">Login</button>
+                <button className="form-btns" type="submit">Login</button>
             </form>
-            <p>Ou</p>
-            <button onClick={() => {setToggleForm(!toggleForm)}}>Registre se</button>
-        </>
+            <p className="or">Ou</p>
+            <button 
+            className="form-btns" 
+            onClick={() => {setToggleForm(!toggleForm)}}
+            >Registre se</button>
+        </div>
     );
 };

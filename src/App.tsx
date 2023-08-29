@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./global.style.css";
 import "./Components/Forms/forms.style.css";
+import "./Pages/pages.style.css";
 
 function App() {
   return (

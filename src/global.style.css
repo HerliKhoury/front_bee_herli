@@ -6,11 +6,14 @@
     --color_modal_shadow: rgba(166, 168, 169, 0.3);
     --color_white: #FFFFFF;
     --color_brand: #D6336C;
+    --color_brand1: #C2255C;
 
     --form-title-font-size: 20px;
+    --page-tittle-font-size: 32px;
     --form-btn-font-size: 14px;
     --font-family: Inter, sans-serif;
     --weight-regular: 400;
+    --weight-semi_bold: 600;
 }
 
 input{
@@ -20,8 +23,53 @@ input{
     border: 1px solid var(--color_input_border);
     color: var(--color_input_font);
     text-indent: 20px;
+    margin-top: 20px;
 }
 
 button{
     cursor: pointer;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, b, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
