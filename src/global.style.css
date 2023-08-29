@@ -9,11 +9,14 @@
     --color_brand1: #C2255C;
 
     --form-title-font-size: 20px;
+    --user-name-dashboard: 24px;
+    --user-mail-dashboard: 16px;
     --page-tittle-font-size: 32px;
     --form-btn-font-size: 14px;
     --font-family: Inter, sans-serif;
     --weight-regular: 400;
     --weight-semi_bold: 600;
+    --weight-bold: 700;
 }
 
 input{

@@ -6,12 +6,12 @@ import { PropertyCard } from "../Components/PropertyCard/PropertyCard.component"
 import { propertyService } from "../Services/property.service";
 import { toast } from "react-toastify";
 import { NoProperty } from "../Components/NoProperty/NoProperty.component";
-import { ConfirmEditModal } from "../Components/Modals/ConfirmEdit.modal";
-import { ConfirmDeleteModal } from "../Components/Modals/ConfirmDelete.modal";
+
 
 
 export const DashBoard = () => {
-    const [properties, setProperties] = useState<any[]>([])
+    const [properties, setProperties] = useState<any[]>([]);
+    
     useEffect(()=> {
         async function loadProperties () {
             try {
@@ -25,31 +25,33 @@ export const DashBoard = () => {
     },[])
 
     return(
-        <>  
-            {/* <ConfirmEditModal/>
-            <ConfirmDeleteModal/> */}
-            <EditPropertyModal/>
-            <CreatePropertyModal/>
-            <Header userName="Herli" userEmail="meu@mail.com"/>
-            {
-                properties.length > 0 ? 
-                <div>
-                    {properties.map(property => (
-                                <PropertyCard
-                                id={property.id}
-                                name={property.name}
-                                total_area={property.total_area}
-                                built_area={property.built_area}
-                                zip_code={property.zip_code}
-                                price={property.price}
-                                address={property.address}
-                                />
+        <div className="wrap-dashboard">
+            <div className="container">
+                {/* <ConfirmEditModal/>
+                <ConfirmDeleteModal/> */}
+                <EditPropertyModal/>
+                <CreatePropertyModal/>
+                <Header userName="Herli" userEmail="meu@mail.com"/>
+                {
+                    properties.length > 0 ? 
+                    <div>
+                        {properties.map(property => (
+                                    <PropertyCard
+                                    id={property.id}
+                                    name={property.name}
+                                    total_area={property.total_area}
+                                    built_area={property.built_area}
+                                    zip_code={property.zip_code}
+                                    price={property.price}
+                                    address={property.address}
+                                    />
+                                )
                             )
-                        )
-                    }
-                </div> 
-                : <NoProperty/>
-            }
-        </>
+                        }
+                    </div> 
+                    : <NoProperty/>
+                }
+            </div>  
+        </div>
     )
 };

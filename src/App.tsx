@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./global.style.css";
 import "./Components/Forms/forms.style.css";
 import "./Pages/pages.style.css";
+import "./Components/Header/header.style.css";
 
 function App() {
   return (

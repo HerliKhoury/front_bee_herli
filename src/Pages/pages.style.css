@@ -45,6 +45,20 @@
     height: 60%;
 }
 
+.wrap-dashboard{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color_modal_bg);
+}
+
+.container{
+    margin: 0 30px;
+}
+
+
+
 
 @media(min-width: 1024px){
     .wrap-home{
@@ -68,6 +82,10 @@
     
     .forms-div{
         width: 50%;
+    }
+
+    .container{
+        margin: 0 400px;
     }
     
 }

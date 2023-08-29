@@ -8,16 +8,14 @@ export const Header = (
     const { toggleRegisFlag } = useContext(PropertyContext);
 
     return(
-        <div>
-            <div>
-                <div>
-                    <h1>{props.userName}</h1>
-                    <p>{props.userEmail}</p>
-                </div>
-                <div>
-                    <button onClick={toggleRegisFlag}>Cadastrar imóvel</button>
-                    <button>Logout</button>
-                </div>
+        <div className="wrap-header">
+            <div className="wrap-info">
+                <h1 className="user-name">{props.userName}</h1>
+                <p className="user-mail">{props.userEmail}</p>
+            </div>
+            <div className="wrap-btns">
+                <button className="headder-btns" onClick={toggleRegisFlag}>Cadastrar imóvel</button>
+                <button className="headder-btns">Logout</button>
             </div>
         </div>
     );
