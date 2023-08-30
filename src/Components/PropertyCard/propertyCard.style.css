@@ -1,0 +1,72 @@
+.card-title{
+    color: var(--color_white);
+    font-size: var(--form-title-font-size);
+    font-family: var(--font-family);
+    font-weight: var(--weight-medium);
+    margin-bottom: 20px;
+}
+
+.card-infos{
+    color: var(--color_card_info_font);
+    font-size: var(--form-btn-font-size);
+    font-family: var(--font-family);
+    font-weight: var(--weight-regular);
+}
+
+.card-btns{
+    width: 100%;
+    height: 39.39px;
+    color: var(--color_white);
+    font-family: var(--font-family);
+    border-radius: 4px;
+    border: 1px solid var(--color_white);
+    font-size: var(--form-btn-font-size);
+    font-weight: var(--weight-regular);
+    background-color: var(--color_modal_bg);
+}
+
+.card-btns:hover{
+    background-color: var(--color_brand);
+    border: none;
+}
+
+.wrap-info-card{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card:hover{
+    background-color: var(--color_input_bg);
+    border: 2px solid var(--color_white);    
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 70%;
+    height: fit-content;
+    background-color: var(--color_modal_bg);
+    border: 2px solid var(--color_card_border);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 15px;
+}
+
+
+@media(min-width: 1024px){
+    .card{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        width: 300px;
+        height: 300px;
+        background-color: var(--color_modal_bg);
+        border: 2px solid var(--color_card_border);
+        border-radius: 8px;
+        padding: 30px;
+        margin-bottom: 15px;
+    }
+
+}

@@ -1,7 +1,9 @@
 :root{
     --color_input_bg: #191C1F;
     --color_modal_bg: #212529;
+    --color_card_border: #373B3E;
     --color_input_font: rgba(255, 255, 255, 0.5);
+    --color_card_info_font: rgba(255, 255, 255, 0.6);
     --color_input_border: rgba(255, 255, 255, 0.12);
     --color_modal_shadow: rgba(166, 168, 169, 0.3);
     --color_white: #FFFFFF;
@@ -15,6 +17,7 @@
     --form-btn-font-size: 14px;
     --font-family: Inter, sans-serif;
     --weight-regular: 400;
+    --weight-medium: 500;
     --weight-semi_bold: 600;
     --weight-bold: 700;
 }

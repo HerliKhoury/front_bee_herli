@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    height: 1000px;
     background-color: var(--color_modal_bg);
 }
 
@@ -57,7 +57,15 @@
     margin: 0 30px;
 }
 
-
+.wrap-cards{
+    display: flex;
+    flex-direction: column;
+    max-height: 630px;
+    overflow-y: auto;
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 30px;
+}
 
 
 @media(min-width: 1024px){
@@ -86,6 +94,17 @@
 
     .container{
         margin: 0 400px;
+    }
+
+    .wrap-cards{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-height: 730px;
+        overflow-y: auto;
+        width: 100%;
+        padding-left: 0;
     }
     
 }

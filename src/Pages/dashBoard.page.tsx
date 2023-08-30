@@ -43,7 +43,7 @@ export const DashBoard = () => {
                 <Header userName="Herli" userEmail="meu@mail.com"/>
                 {
                     properties.length > 0 ? 
-                    <div>
+                    <div className="wrap-cards">
                         {properties.map(property => (
                                     <PropertyCard
                                     key={Math.random()}
