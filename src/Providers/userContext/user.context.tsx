@@ -20,10 +20,8 @@ export const UserProvider = ({children}: TDefaultProviderProps) => {
     const userLogin = async (formData: TLogin) => {
         try {
             const response = await api.post<TUserInfo>(
-                "/login", 
-                formData, {
-                withCredentials: true
-                }
+                "login", 
+                formData
             );
     
           localStorage.setItem("Token", `${response.data.token}`);

@@ -54,6 +54,7 @@
 .errors{
     color: var(--color_error);
     font-family: var(--font-family);
+    font-size: var(--form-btn-font-size);
     margin-top: 8px;
     margin-left: 20px;
 }
