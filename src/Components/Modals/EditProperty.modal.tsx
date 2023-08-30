@@ -2,10 +2,15 @@ import { useContext } from "react";
 import Modal from "react-modal";
 import { PropertyContext } from "../../Providers/propertyContext/property.context";
 import "./modal.style.css";
-import { EditPropertyForm } from "../Forms/EditProperty.form";
+import { GenericPropertyForm } from "../Forms/GenericProperty.form";
 
-export const EditPropertyModal = () => {
+interface IProps {
+    item: any
+}
+
+export const EditPropertyModal = (props:IProps) => {
     const {flagEditForm, toggleEditFlag} = useContext(PropertyContext);
+
 
     return  (
         <Modal
@@ -15,7 +20,7 @@ export const EditPropertyModal = () => {
             className="modal-content"
         >
             <button className="close-btn" onClick={toggleEditFlag}>X</button>
-            <EditPropertyForm/>
+            <GenericPropertyForm itemToEdit={props.item}/>
         </Modal>
     );
 };

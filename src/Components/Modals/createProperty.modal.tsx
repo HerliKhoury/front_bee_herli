@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { RegisterPropertyForm } from "../Forms/RegisterProperty.form";
 import Modal from "react-modal";
 import { PropertyContext } from "../../Providers/propertyContext/property.context";
 import "./modal.style.css";
+import { GenericPropertyForm } from "../Forms/GenericProperty.form";
 
 export const CreatePropertyModal = () => {
     const {flagRegisForm, toggleRegisFlag} = useContext(PropertyContext);
@@ -15,7 +15,7 @@ export const CreatePropertyModal = () => {
             className="modal-content"
         >
             <button className="close-btn" onClick={toggleRegisFlag}>X</button>
-            <RegisterPropertyForm/>
+            <GenericPropertyForm itemToEdit={undefined}/>
         </Modal>
     );
 };

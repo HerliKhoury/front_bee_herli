@@ -23,32 +23,12 @@ export const PropertyProvider = ({children}: TDefaultProviderProps) => {
         setFlagConfirmDelete(!flagConfirmDelete);
     };
 
-    const createProperty = async (formData: TProperty) => {
-        const token: string | null = localStorage.getItem("Token");
-        try {
-            await api.post("property", formData, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                }
-            });
-      
-            toast.success("Imóvel cadastrado com sucesso");
-            toggleRegisFlag();
-        } catch (error: any) {
-            toast.error("Imóvel não criado");
-            console.log(error);
-        } 
-    };
-
-
-
     return(
         <PropertyContext.Provider value = {{
             toggleRegisFlag,
             toggleEditFlag,
             flagEditForm,
             flagRegisForm,
-            createProperty,
             flagConfirmDelete,
             toggleConfirmDeleteFlag
         }}>

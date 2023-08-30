@@ -9,10 +9,10 @@ export const PropertyCard = (
         built_area: string, 
         address: string, 
         zip_code: string, 
-        price: string
+        price: string,
+        onEdit(id:number):void
     }
 ) => {
-    const {toggleEditFlag} = useContext(PropertyContext);
     return(
         <div id={`${props.id}`}>
             <div>
@@ -24,7 +24,7 @@ export const PropertyCard = (
                 <p>Preço: {props.price}</p>
             </div>
             <div>
-                <button onClick={toggleEditFlag}>Editar</button>
+                <button onClick={()=> {props.onEdit(props.id)}}>Editar</button>
                 <button>Excluir</button>
             </div>
         </div>

@@ -1,35 +1,65 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import { TFormProps } from "../../Interfaces/property.interfaces";
+import { TPropertyRes } from "../../Interfaces/property.interfaces";
+import { useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { propertyService } from "../../Services/property.service";
+import { PropertyContext } from "../../Providers/propertyContext/property.context";
 
-export const GenericPropertyForm: React.FC<TFormProps> = (props) => {
+interface IProps {
+    itemToEdit?: TPropertyRes
+};
 
-    const {register, handleSubmit, formState: {errors}} = useForm({
-        resolver: yupResolver(props.validationSchema)
+export const GenericPropertyForm = (props: IProps) => {
+
+    const {toggleRegisFlag, toggleEditFlag} = useContext(PropertyContext);
+
+    const [state, setState] = useState<TPropertyRes>({
+        name: '',
+        total_area: '',
+        built_area: '',
+        address: '',
+        zip_code: '',
+        price: '',
     });
+
+    useEffect(()=> {
+       if(!!props.itemToEdit)  setState(props.itemToEdit)
+    },[props.itemToEdit]);
+  
+    async function handleSubmit(){
+        try {
+            if(state?.id){
+                await propertyService.updateProperty(state.id, state);
+                toast.success('Imóvel alterado com sucesso');
+                toggleEditFlag();
+            } else {
+                await  propertyService.createProperty(state);
+                toast.success('Imóvel criado com sucesso');
+                toggleRegisFlag();
+            }  
+            
+        } catch (error) {
+            toast.error('Operação não realizada')
+        }
+    };
+
+    function handleEdit(e:any) {
+        setState({...state, [e.target.name]: e.target.value})
+    }
 
     return(
         <>
-            <h2 className="form-title">{props.titleText}</h2>
-            <form onSubmit={handleSubmit(props.onSubmitFunction)}>
-                <input placeholder="Nome ou apelido" {...register("name")}/>
-                <p>{errors.name?.message}</p>
-                <input placeholder="Área total" {...register("total_area")}/>
-                <p>{errors.total_area?.message}</p>
-                <input placeholder="Área construida" {...register("built_area")}/>
-                <p>{errors.built_area?.message}</p>
-                <input placeholder="Endereço" {...register("address")}/>
-                <p>{errors.address?.message}</p>
-                <input placeholder="CEP" {...register("zip_code")}/>
-                <p>{errors.zip_code?.message}</p>
-                <input placeholder="Preço" {...register("price")}/>
-                <p>{errors.price?.message}</p>
+            <h2 className="form-title">{!!props.itemToEdit ? 'Editar imóvel' : 'Cadastrar imóvel'}</h2>
+            <div className="wrap-forms ">
+                <input onChange={handleEdit} value={state.name} name="name" placeholder="Nome ou apelido"/>
+                <input onChange={handleEdit} value={state.total_area} name="total_area" placeholder="Área total"/>
+                <input onChange={handleEdit} value={state.built_area} name="built_area" placeholder="Área construida"/>
+                <input onChange={handleEdit} value={state.address} name="address" placeholder="Endereço"/>
+                <input onChange={handleEdit} value={state.zip_code} name="zip_code" placeholder="CEP"/>
+                <input onChange={handleEdit} value={state.price} name="price" placeholder="Preço"/>
                 <div className="btn-div">
-                    <button className="form-btns" type="submit">{props.submitButtonText}</button>
-                    <button className="form-btns" type="button" onClick={props.cancelFunction}>Cancelar</button>
+                    <button className="form-btns" type="submit" onClick={handleSubmit}>Salvar</button>
                 </div>
-            </form>
-            
+            </div>
         </>
     );
 };

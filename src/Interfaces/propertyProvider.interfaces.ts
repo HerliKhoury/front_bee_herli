@@ -11,5 +11,4 @@ export type TProviderContext = {
     flagRegisForm: boolean;
     flagEditForm: boolean;
     flagConfirmDelete: boolean;
-    createProperty: (formData: TProperty) => Promise<void>;
 }

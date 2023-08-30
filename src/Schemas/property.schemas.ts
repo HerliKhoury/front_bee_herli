@@ -15,7 +15,7 @@ export const propertySchemaOptional = yup.object().shape({
     total_area: yup.string(),
     built_area: yup.string(),
     address: yup.string(),
-    zip_code: yup.string()/* .matches(/^\d{5}-\d{3}$/, "O CEP deve estar no formato 00000-00") */,
+    zip_code: yup.string(),
     price: yup.string()
 });
 
