@@ -1,5 +1,9 @@
-import { useContext } from "react";
+import { toast } from "react-toastify";
+import { propertyService } from "../../Services/property.service";
+import { UserContext } from "../../Providers/userContext/user.context";
 import { PropertyContext } from "../../Providers/propertyContext/property.context";
+import { useContext } from "react";
+
 
 export const PropertyCard = (
     props : {
@@ -13,6 +17,18 @@ export const PropertyCard = (
         onEdit(id:number):void
     }
 ) => {
+    const {toggleRefreshFlag} = useContext(PropertyContext);
+
+    async function handleSubmit(){
+        try {
+            await propertyService.deleteProperty(props.id);
+            toast.success("Imóvel excluído com sucesso");
+            toggleRefreshFlag();
+        } catch (error) {
+            toast.error("Operação não realizada")
+        }
+    };
+
     return(
         <div id={`${props.id}`}>
             <div>
@@ -25,7 +41,7 @@ export const PropertyCard = (
             </div>
             <div>
                 <button onClick={()=> {props.onEdit(props.id)}}>Editar</button>
-                <button>Excluir</button>
+                <button onClick={handleSubmit}>Excluir</button>
             </div>
         </div>
     );

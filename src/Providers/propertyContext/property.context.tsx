@@ -1,8 +1,5 @@
 import { createContext, useState } from "react";
 import { TDefaultProviderProps, TProviderContext } from "../../Interfaces/propertyProvider.interfaces";
-import { TProperty, TPropertyRes, TPropertyUpdate } from "../../Interfaces/property.interfaces";
-import { api } from "../../Services/api";
-import { toast } from "react-toastify";
 
 export const PropertyContext = createContext({} as TProviderContext);
 
@@ -10,6 +7,7 @@ export const PropertyProvider = ({children}: TDefaultProviderProps) => {
     const [flagRegisForm, setFlagRegisForm] = useState(false);
     const [flagEditForm, setFlagEditForm] = useState(false);
     const [flagConfirmDelete, setFlagConfirmDelete] = useState(false);
+    const [flagRefreshFlag, setRefreshFlag] = useState(false);
 
     function toggleRegisFlag(){
         setFlagRegisForm(!flagRegisForm);
@@ -23,14 +21,20 @@ export const PropertyProvider = ({children}: TDefaultProviderProps) => {
         setFlagConfirmDelete(!flagConfirmDelete);
     };
 
+    function toggleRefreshFlag(){
+        setRefreshFlag(!flagRefreshFlag);
+    }; 
+
     return(
         <PropertyContext.Provider value = {{
             toggleRegisFlag,
             toggleEditFlag,
+            toggleConfirmDeleteFlag,
+            toggleRefreshFlag,
             flagEditForm,
             flagRegisForm,
             flagConfirmDelete,
-            toggleConfirmDeleteFlag
+            flagRefreshFlag
         }}>
             {children}
         </PropertyContext.Provider>

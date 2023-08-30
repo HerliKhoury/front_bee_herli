@@ -10,7 +10,7 @@ import { PropertyContext } from "../Providers/propertyContext/property.context";
 
 
 export const DashBoard = () => {
-    const {toggleEditFlag, flagEditForm, flagRegisForm} = useContext(PropertyContext);
+    const {toggleEditFlag, flagEditForm, flagRegisForm, flagRefreshFlag} = useContext(PropertyContext);
 
     const [properties, setProperties] = useState<any[]>([]);
     const [edit, setEdit] = useState<any>();
@@ -21,7 +21,6 @@ export const DashBoard = () => {
     }
 
     useEffect(()=> {
-
         async function loadProperties () {
             try {
                 let response = await propertyService.getProperties();
@@ -32,7 +31,7 @@ export const DashBoard = () => {
         }
 
         if(flagEditForm === false) loadProperties();    
-    },[flagEditForm, flagRegisForm])
+    },[flagEditForm, flagRegisForm, flagRefreshFlag])
 
     return(
         <div className="wrap-dashboard">
