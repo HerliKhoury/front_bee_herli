@@ -19,10 +19,12 @@ export const ConfirmEditModal = (
             overlayClassName="modal-overlay"
             className="modal-content-maximus"
         >
-            <button onClick={toggleConfirmOperationFlag}>X</button>
-            <p>Tem certeza que deseja realizar a operação?</p>
-            <button onClick={props.proceed}>Sim</button>
-            <button onClick={toggleConfirmOperationFlag}>Não</button>
+            <button onClick={toggleConfirmOperationFlag} className="close-btn">X</button>
+            <p className="confirm-msg">Tem certeza que deseja atualizar o imóvel?</p>
+            <div className="btn-div-modal">
+                <button onClick={props.proceed} className="form-btns">Sim</button>
+                <button onClick={toggleConfirmOperationFlag} className="form-btns">Não</button>
+            </div>
         </Modal>
     );
 };

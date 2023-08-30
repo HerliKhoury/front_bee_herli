@@ -38,7 +38,7 @@
 .close-btn{
     border: 1px solid var(--color_white);
     border-radius: 4px;
-     background-color: var(--color_modal_bg);
+    background-color: var(--color_modal_bg);
     color: var(--color_white);
     height: 25px;
     width: 30px;
@@ -49,4 +49,22 @@
 .close-btn:hover{
      background-color: var(--color_brand);
     border: none;
+}
+
+.btn-div-modal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.confirm-msg{
+    color: var(--color_white);
+    font-size: var(--form-title-font-size);
+    font-family: var(--font-family);
+    font-weight: var(--weight-regular);
+    text-align: center;
+    margin: 50px 0;
 }

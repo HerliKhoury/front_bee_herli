@@ -1,5 +1,7 @@
-import { DataGrid, GridColDef, GridSortItem } from "@mui/x-data-grid";
+import { DataGrid, GridColDef} from "@mui/x-data-grid";
 import {FaPencilAlt, FaTrashAlt} from 'react-icons/fa';
+
+
 interface IProps {
   properties: any[];
   onSelect(target: number, action: string): void;
@@ -42,9 +44,8 @@ const DashBoardtable = (props: IProps) => {
     },
   ];
 
-  return <div>
-
-{props.properties && props.properties?.length > 0 ? (
+  return <div className="wrap-table">
+          {props.properties && props.properties?.length > 0 ? (
             <DataGrid
               autoHeight
               getRowId={(row: any) => row.id}

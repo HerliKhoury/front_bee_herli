@@ -73,8 +73,7 @@
     flex-direction: column;
     color: #FFF;
     max-height: 630px;
-    width: 90%;
-    padding-left: 30px;
+    width: 100%;
 }
 
 @media(min-width: 1024px){

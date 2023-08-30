@@ -5,6 +5,7 @@ import "./modal.style.css";
 import { propertyService } from "../../Services/property.service";
 import { toast } from "react-toastify";
 
+
 export const ConfirmDeleteModal = (
     props : {
         id: number,
@@ -24,10 +25,12 @@ export const ConfirmDeleteModal = (
             overlayClassName="modal-overlay"
             className="modal-content"
         >
-            <button onClick={toggleConfirmDeleteFlag}>X</button>
-            <p>Tem certeza que deseja deletar o imóvel ?</p>
-            <button onClick={handleDelete}>Sim</button>
-            <button onClick={toggleConfirmDeleteFlag}>Não</button>
+            <button onClick={toggleConfirmDeleteFlag} className="close-btn">X</button>
+            <p className="confirm-msg">Tem certeza que deseja deletar o imóvel ?</p>
+            <div className="btn-div-modal">
+                <button onClick={handleDelete} className="form-btns">Sim</button>
+                <button onClick={toggleConfirmDeleteFlag} className="form-btns">Não</button>
+            </div>
         </Modal>
     );
 };

@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { Header } from "../Components/Header/Header.component";
 import { CreatePropertyModal } from "../Components/Modals/CreateProperty.modal";
 import { EditPropertyModal } from "../Components/Modals/EditProperty.modal";
-import { PropertyCard } from "../Components/PropertyCard/PropertyCard.component";
 import { propertyService } from "../Services/property.service";
 import { toast } from "react-toastify";
 import { NoProperty } from "../Components/NoProperty/NoProperty.component";
@@ -56,31 +55,13 @@ export const DashBoard = () => {
         <div className="wrap-dashboard">
             <ConfirmDeleteModal id={toDelete} name={''}/>
             <div className="container">
-                {/* <ConfirmEditModal/>
-                <ConfirmDeleteModal/> */}
                 <EditPropertyModal item={edit} />
                 <CreatePropertyModal/>
                 <Header/>
                 {
                     properties.length > 0 ? 
                     <div className="wrap-table">
-                         <DashBoardTable properties={properties} onSelect={handleSelection} />
-                        {/* {properties.map(property => (
-                                    <PropertyCard
-                                    key={Math.random()}
-                                    id={property.id}
-                                    name={property.name}
-                                    total_area={property.total_area}
-                                    built_area={property.built_area}
-                                    zip_code={property.zip_code}
-                                    price={property.price}
-                                    address={property.address}
-                                    onEdit={handleEdition}
-                                    />
-                                )
-                            )
-                        } */}
-                       
+                        <DashBoardTable properties={properties} onSelect={handleSelection} />                       
                     </div> 
                     : <NoProperty/>
                 }
