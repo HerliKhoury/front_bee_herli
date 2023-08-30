@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center; 
     align-items: center;
-    background-color: var(--color_brand1);
+    background: var(--color_brand1);
     gap: 30px;
 }
 
@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: center; 
     align-items: center;
-    background-color: var(--color_modal_bg);
+     background-color: var(--color_modal_bg);
 }
 
 .page-title{
@@ -50,7 +50,7 @@
     flex-direction: column;
     width: 100vw;
     height: 1000px;
-    background-color: var(--color_modal_bg);
+     background-color: var(--color_modal_bg);
 }
 
 .container{
@@ -65,8 +65,17 @@
     width: 80%;
     margin: 0 auto;
     padding-left: 30px;
+    background: #FFF;
 }
 
+.wrap-table {
+    display: flex;
+    flex-direction: column;
+    color: #FFF;
+    max-height: 630px;
+    width: 90%;
+    padding-left: 30px;
+}
 
 @media(min-width: 1024px){
     .wrap-home{

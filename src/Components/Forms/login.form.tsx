@@ -26,9 +26,9 @@ export const LoginForm = () => {
             <h2 className="form-title">Login</h2>
             <form onSubmit={handleSubmit(onSubmitFuction)}>
                 <input placeholder="Email" {...register("email")}/>
-                <p>{errors.email?.message}</p>
+                <p className="errors">{errors.email?.message}</p>
                 <input placeholder="Senha" {...register("password")}/>
-                <p>{errors.password?.message}</p>
+                <p className="errors">{errors.password?.message}</p>
                 <button className="form-btns" type="submit">Login</button>
             </form>
             <p className="or">Ou</p>

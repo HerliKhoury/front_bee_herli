@@ -18,11 +18,11 @@
     border: 1px solid var(--color_white);
     font-size: var(--form-btn-font-size);
     font-weight: var(--weight-regular);
-    background-color: var(--color_modal_bg);
+     background-color: var(--color_modal_bg);
 }
 
 .headder-btns:hover{
-    background-color: var(--color_brand);
+     background-color: var(--color_brand);
     border: none;
 }
 
@@ -78,6 +78,6 @@
         border: 1px solid var(--color_white);
         font-size: var(--form-btn-font-size);
         font-weight: var(--weight-regular);
-        background-color: var(--color_modal_bg);
+         background-color: var(--color_modal_bg);
     }
 }

@@ -9,6 +9,7 @@
     --color_white: #FFFFFF;
     --color_brand: #D6336C;
     --color_brand1: #C2255C;
+    --color_error: #fe0059;
 
     --form-title-font-size: 20px;
     --user-name-dashboard: 24px;
@@ -23,7 +24,7 @@
 }
 
 input{
-    background-color: var(--color_input_bg);
+     background-color: var(--color_input_bg);
     height: 39.39px;
     width: 100%;
     border: 1px solid var(--color_input_border);

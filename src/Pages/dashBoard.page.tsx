@@ -7,18 +7,37 @@ import { propertyService } from "../Services/property.service";
 import { toast } from "react-toastify";
 import { NoProperty } from "../Components/NoProperty/NoProperty.component";
 import { PropertyContext } from "../Providers/propertyContext/property.context";
+import { useNavigate } from "react-router-dom";
+import DashBoardTable from "../Components/DashBoardTable";
+import { ConfirmDeleteModal } from "../Components/Modals/ConfirmDelete.modal";
 
 
 export const DashBoard = () => {
-    const {toggleEditFlag, flagEditForm, flagRegisForm, flagRefreshFlag} = useContext(PropertyContext);
-
+    const navigation = useNavigate();
+    const [toDelete, setToDelete] = useState(-1)
+    const {toggleConfirmDeleteFlag, toggleEditFlag, flagEditForm, flagRegisForm, flagRefreshFlag, flagConfirmDelete} = useContext(PropertyContext);
+    
     const [properties, setProperties] = useState<any[]>([]);
     const [edit, setEdit] = useState<any>();
+
+    function askConfirmation(target: number) {
+        setToDelete(target)
+        toggleConfirmDeleteFlag()
+    }
     function handleEdition(id:number) {
         let selected = properties.find(el => el.id === id)
         if(!!selected) setEdit(selected)
-        toggleEditFlag()
+        toggleEditFlag() 
     }
+    function handleSelection(target: number, action:string) {
+        if(action === 'edit') handleEdition(target)
+        else askConfirmation(target) // ação de deletar aqui!
+    }
+    useEffect(() => {
+        if(!localStorage.getItem('Token')){
+            navigation("/");
+        }
+    });
 
     useEffect(()=> {
         async function loadProperties () {
@@ -30,21 +49,23 @@ export const DashBoard = () => {
             }
         }
 
-        if(flagEditForm === false) loadProperties();    
-    },[flagEditForm, flagRegisForm, flagRefreshFlag])
-
+        if(flagEditForm === false || flagConfirmDelete === false) loadProperties();    
+    },[flagEditForm, flagRegisForm, flagRefreshFlag, flagConfirmDelete])
+    
     return(
         <div className="wrap-dashboard">
+            <ConfirmDeleteModal id={toDelete} name={''}/>
             <div className="container">
                 {/* <ConfirmEditModal/>
                 <ConfirmDeleteModal/> */}
                 <EditPropertyModal item={edit} />
                 <CreatePropertyModal/>
-                <Header userName="Herli" userEmail="meu@mail.com"/>
+                <Header/>
                 {
                     properties.length > 0 ? 
-                    <div className="wrap-cards">
-                        {properties.map(property => (
+                    <div className="wrap-table">
+                         <DashBoardTable properties={properties} onSelect={handleSelection} />
+                        {/* {properties.map(property => (
                                     <PropertyCard
                                     key={Math.random()}
                                     id={property.id}
@@ -58,7 +79,8 @@ export const DashBoard = () => {
                                     />
                                 )
                             )
-                        }
+                        } */}
+                       
                     </div> 
                     : <NoProperty/>
                 }

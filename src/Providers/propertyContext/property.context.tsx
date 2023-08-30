@@ -7,6 +7,7 @@ export const PropertyProvider = ({children}: TDefaultProviderProps) => {
     const [flagRegisForm, setFlagRegisForm] = useState(false);
     const [flagEditForm, setFlagEditForm] = useState(false);
     const [flagConfirmDelete, setFlagConfirmDelete] = useState(false);
+    const [flagConfirmOperation, setFlagConfirmOperation] = useState(false);
     const [flagRefreshFlag, setRefreshFlag] = useState(false);
 
     function toggleRegisFlag(){
@@ -20,6 +21,9 @@ export const PropertyProvider = ({children}: TDefaultProviderProps) => {
     function toggleConfirmDeleteFlag(){
         setFlagConfirmDelete(!flagConfirmDelete);
     };
+    function toggleConfirmOperationFlag(){
+        setFlagConfirmOperation(!flagConfirmOperation);
+    };
 
     function toggleRefreshFlag(){
         setRefreshFlag(!flagRefreshFlag);
@@ -30,9 +34,11 @@ export const PropertyProvider = ({children}: TDefaultProviderProps) => {
             toggleRegisFlag,
             toggleEditFlag,
             toggleConfirmDeleteFlag,
+            toggleConfirmOperationFlag,
             toggleRefreshFlag,
             flagEditForm,
             flagRegisForm,
+            flagConfirmOperation,
             flagConfirmDelete,
             flagRefreshFlag
         }}>

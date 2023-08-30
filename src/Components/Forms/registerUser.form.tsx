@@ -26,15 +26,15 @@ export const RegisterUserForm = () => {
             <h2 className="form-title">Cadastro</h2>
             <form onSubmit={handleSubmit(onSubmitFuction)}>
                 <input placeholder="Nome" {...register("name")}/>
-                <p>{errors.name?.message}</p>
+                <p className="errors">{errors.name?.message}</p>
                 <input placeholder="Email" {...register("email")}/>
-                <p>{errors.email?.message}</p>
+                <p className="errors">{errors.email?.message}</p>
                 <input placeholder="Telefone" {...register("phone")}/>
-                <p>{errors.phone?.message}</p>
+                <p className="errors">{errors.phone?.message}</p>
                 <input placeholder="Senha" {...register("password")}/>
-                <p>{errors.password?.message}</p>
+                <p className="errors">{errors.password?.message}</p>
                 <input placeholder="Confirme sua senha" {...register("password_confirm")}/>
-                <p>{errors.password_confirm?.message}</p>
+                <p className="errors">{errors.password_confirm?.message}</p>
                 <button type="submit" className="form-btns">Cadastre se</button>
             </form>
             <p className="or">Ou</p>

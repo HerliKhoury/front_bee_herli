@@ -7,21 +7,22 @@ export const ConfirmEditModal = (
     props : {
         id: number,
         name: string
+        proceed():void
     }
 ) => {
-    const {flagConfirmDelete, toggleConfirmDeleteFlag} = useContext(PropertyContext);
+    const {flagConfirmOperation, toggleConfirmOperationFlag} = useContext(PropertyContext);
 
     return  (
         <Modal
-            isOpen={flagConfirmDelete}
-            onRequestClose={toggleConfirmDeleteFlag}
+            isOpen={flagConfirmOperation}
+            onRequestClose={toggleConfirmOperationFlag}
             overlayClassName="modal-overlay"
-            className="modal-content"
+            className="modal-content-maximus"
         >
-            <button onClick={toggleConfirmDeleteFlag}>X</button>
-            <p>Tem certeza que deseja alterar o imóvel {props.name} ?</p>
-            <button /* onClick={} */>Sim</button>
-            <button onClick={toggleConfirmDeleteFlag}>Não</button>
+            <button onClick={toggleConfirmOperationFlag}>X</button>
+            <p>Tem certeza que deseja realizar a operação?</p>
+            <button onClick={props.proceed}>Sim</button>
+            <button onClick={toggleConfirmOperationFlag}>Não</button>
         </Modal>
     );
 };

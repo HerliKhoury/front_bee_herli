@@ -4,18 +4,22 @@ import { api } from "../../Services/api";
 import { useNavigate } from "react-router-dom";
 import { TLogin, TLoginRes } from "../../Interfaces/login.interfaces";
 import { toast } from "react-toastify";
-import { TUser, TUserReq } from "../../Interfaces/user.interfaces";
+import { TUser, TUserInfo, TUserReq } from "../../Interfaces/user.interfaces";
 
 export const UserContext = createContext({} as TUserContext);
 
 export const UserProvider = ({children}: TDefaultProviderProps) => {
     const [toggleForm, setToggleForm] = useState(false);
+    const [userInfo, setUserInfo] = useState({
+        name: "",
+        email: ""
+    });
 
     const navigate = useNavigate();
 
     const userLogin = async (formData: TLogin) => {
         try {
-            const response = await api.post<TLoginRes>(
+            const response = await api.post<TUserInfo>(
                 "/login", 
                 formData, {
                 withCredentials: true
@@ -23,6 +27,12 @@ export const UserProvider = ({children}: TDefaultProviderProps) => {
             );
     
           localStorage.setItem("Token", `${response.data.token}`);
+          setUserInfo({
+            name: response.data.name,
+            email: response.data.email
+          });
+          localStorage.setItem('user_name', response.data.name)
+          localStorage.setItem('user_email', response.data.email)
           toast.success(`Usuário logado`);
           navigate("/dashboard");
         } catch (error) {
@@ -55,7 +65,8 @@ export const UserProvider = ({children}: TDefaultProviderProps) => {
             toggleForm,
             setToggleForm,
             userLogin,
-            createUser
+            createUser,
+            userInfo
         }}>
             {children}
         </UserContext.Provider>
